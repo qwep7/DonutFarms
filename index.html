@@ -246,41 +246,35 @@ document.addEventListener("mousemove", e => {
     glow.style.left = x + "px";
     glow.style.top = y + "px";
 
-    /* logo look at mouse */
+    /* smoother / less insane title movement */
     const r = logo.getBoundingClientRect();
-    const lx = r.left + r.width/2;
-    const ly = r.top + r.height/2;
+    const lx = r.left + r.width / 2;
+    const ly = r.top + r.height / 2;
+
+    const dx = x - lx;
+    const dy = y - ly;
 
     logo.style.transform = `
-        rotateX(${-(y-ly)/14}deg)
-        rotateY(${(x-lx)/14}deg)
-        scale(1.03)
+        rotateX(${-(dy * 0.008)}deg)
+        rotateY(${dx * 0.008}deg)
+        translate(${dx * 0.01}px, ${dy * 0.01}px)
+        scale(1.02)
     `;
 
-    /* cards gravitate to mouse */
-    cards.forEach(card=>{
+    /* cards */
+    cards.forEach(card => {
         const rect = card.getBoundingClientRect();
-        const cx = rect.left + rect.width/2;
-        const cy = rect.top + rect.height/2;
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
 
-        const dx = x - cx;
-        const dy = y - cy;
-
-        const moveX = dx * 0.015;
-        const moveY = dy * 0.015;
-
-        const rotY = dx * 0.01;
-        const rotX = -dy * 0.01;
+        const ddx = x - cx;
+        const ddy = y - cy;
 
         card.style.transform = `
-            translate(${moveX}px, ${moveY}px)
-            rotateX(${rotX}deg)
-            rotateY(${rotY}deg)
+            translate(${ddx * 0.01}px, ${ddy * 0.01}px)
+            rotateX(${-(ddy * 0.005)}deg)
+            rotateY(${ddx * 0.005}deg)
         `;
     });
 });
 </script>
-
-</body>
-</html>
-```
