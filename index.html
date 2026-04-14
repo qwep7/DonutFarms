@@ -1,0 +1,286 @@
+```html id="7n4kqp"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DonutFarms</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05080d;
+    color:white;
+}
+
+/* BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,255,255,.07), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(0,255,255,.05), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(0,255,255,.04), transparent 35%);
+    z-index:-5;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    transform:perspective(900px) rotateX(70deg) scale(2);
+    transform-origin:center bottom;
+    opacity:.35;
+    z-index:-4;
+}
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    pointer-events:none;
+    background:radial-gradient(circle, rgba(0,255,255,.18), transparent 65%);
+    filter:blur(35px);
+    transform:translate(-50%,-50%);
+    z-index:-3;
+}
+
+/* HEADER */
+.hero{
+    text-align:center;
+    padding:70px 20px 30px;
+    perspective:1200px;
+}
+
+.logo{
+    font-size:clamp(55px,10vw,140px);
+    font-weight:900;
+    letter-spacing:6px;
+    color:#eaffff;
+    text-transform:uppercase;
+    transform-style:preserve-3d;
+    transition:transform .05s linear;
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 25px #00ffff,
+        0 0 45px #00ffff,
+        0 0 80px rgba(0,255,255,.75);
+}
+
+.desc{
+    margin-top:14px;
+    letter-spacing:3px;
+    color:#8fffff;
+    font-size:15px;
+    text-shadow:0 0 10px cyan;
+}
+
+/* BOXES */
+.container{
+    width:min(1400px,95%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:28px;
+    padding:20px 0 80px;
+}
+
+.card{
+    background:rgba(10,18,28,.72);
+    border:1px solid rgba(0,255,255,.16);
+    border-radius:22px;
+    overflow:hidden;
+    backdrop-filter:blur(8px);
+    box-shadow:
+        0 0 25px rgba(0,255,255,.08),
+        inset 0 0 18px rgba(0,255,255,.04);
+    transform-style:preserve-3d;
+    transition:transform .08s linear, box-shadow .25s;
+    position:relative;
+}
+
+.card:hover{
+    box-shadow:
+        0 0 35px rgba(0,255,255,.25),
+        0 0 65px rgba(0,255,255,.12);
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+}
+
+.info{
+    padding:18px;
+}
+
+.title{
+    font-size:26px;
+    font-weight:800;
+    color:#f0ffff;
+    text-shadow:0 0 14px rgba(0,255,255,.6);
+}
+
+.text{
+    margin-top:10px;
+    color:#a9dfe6;
+    line-height:1.5;
+    min-height:64px;
+    text-shadow:0 0 10px rgba(0,255,255,.18);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:12px 20px;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    letter-spacing:1px;
+    background:linear-gradient(135deg,#00b7ff,#00ffff);
+    box-shadow:
+        0 0 16px rgba(0,255,255,.45),
+        0 0 32px rgba(0,255,255,.25);
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px) scale(1.04);
+    box-shadow:
+        0 0 22px rgba(0,255,255,.7),
+        0 0 45px rgba(0,255,255,.4);
+}
+
+.vignette{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle, transparent 55%, rgba(0,0,0,.75));
+    pointer-events:none;
+}
+</style>
+</head>
+<body>
+
+<div class="grid"></div>
+<div class="glow" id="glow"></div>
+
+<section class="hero">
+    <div class="logo" id="logo">DonutFarms</div>
+    <div class="desc">THE BEST DONUT SMP FARMS</div>
+</section>
+
+<section class="container">
+
+    <!-- BOX 1 -->
+    <div class="card">
+        <img src="images/BerryFarm.png" alt="">
+        <div class="info">
+            <div class="title">Sweet Berry Farm</div>
+            <div class="text">
+                Makes 833k an hour.
+            </div>
+            <a class="btn" href="downloads/BerryFarm.litematic" download>
+                DOWNLOAD
+            </a>
+        </div>
+    </div>
+
+    <!-- BOX 2 -->
+    <div class="card">
+        <img src="images/farm2.png" alt="">
+        <div class="info">
+            <div class="title">Mob Grinder</div>
+            <div class="text">
+                Replace this text with another description and details.
+            </div>
+            <a class="btn" href="downloads/farm2.zip" download>
+                DOWNLOAD
+            </a>
+        </div>
+    </div>
+
+    <!-- BOX 3 -->
+    <div class="card">
+        <img src="images/farm3.png" alt="">
+        <div class="info">
+            <div class="title">Iron Farm</div>
+            <div class="text">
+                Add your own text here. You can duplicate cards easily.
+            </div>
+            <a class="btn" href="downloads/farm3.zip" download>
+                DOWNLOAD
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<div class="vignette"></div>
+
+<script>
+const glow = document.getElementById("glow");
+const logo = document.getElementById("logo");
+const cards = document.querySelectorAll(".card");
+
+document.addEventListener("mousemove", e => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    glow.style.left = x + "px";
+    glow.style.top = y + "px";
+
+    /* logo look at mouse */
+    const r = logo.getBoundingClientRect();
+    const lx = r.left + r.width/2;
+    const ly = r.top + r.height/2;
+
+    logo.style.transform = `
+        rotateX(${-(y-ly)/14}deg)
+        rotateY(${(x-lx)/14}deg)
+        scale(1.03)
+    `;
+
+    /* cards gravitate to mouse */
+    cards.forEach(card=>{
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width/2;
+        const cy = rect.top + rect.height/2;
+
+        const dx = x - cx;
+        const dy = y - cy;
+
+        const moveX = dx * 0.015;
+        const moveY = dy * 0.015;
+
+        const rotY = dx * 0.01;
+        const rotX = -dy * 0.01;
+
+        card.style.transform = `
+            translate(${moveX}px, ${moveY}px)
+            rotateX(${rotX}deg)
+            rotateY(${rotY}deg)
+        `;
+    });
+});
+</script>
+
+</body>
+</html>
+```
